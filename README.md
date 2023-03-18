@@ -24,8 +24,8 @@
 
 #Authentikasi
 
-Email : administrator@gmail.com
-Password : administrator
+- Email : administrator@gmail.com
+- Password : administrator
 
 
 
