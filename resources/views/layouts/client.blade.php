@@ -53,6 +53,18 @@
 
 
 
+            <li class="nav-item {{ \Route::is('client.*') ? 'active' : '' }}">
+                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseFor"
+                    aria-expanded="true" aria-controls="collapseFor">
+                    <i class="fas fa-id-card"></i>
+                    <span>Data Tiket</span>
+                </a>
+                <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ \Route::is('client.index') ? 'active' : '' }}" href="{{ route('client.index') }}">Data Tiket</a>
+                    </div>
+                </div>
+            </li>
 
 
 

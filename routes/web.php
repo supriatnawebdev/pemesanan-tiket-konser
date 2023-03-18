@@ -7,6 +7,7 @@ use App\Http\Controllers\KonserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BayarTiketController;
 use App\Http\Controllers\OrderTiketController;
+use App\Http\Controllers\TiketClientController;
 use App\Http\Controllers\ClientDashboardController;
 
 /*
@@ -42,6 +43,7 @@ Route::prefix('administrator')->middleware(['auth', 'auth.administrator'])->grou
 Route::prefix('client')->middleware(['auth', 'auth.client'])->group(function () {
 
     Route::get('/beranda', [ClientDashboardController::class, 'index'])->name('client.beranda');
+    Route::resource('/tiket', TiketClientController::class);
 
 });
 

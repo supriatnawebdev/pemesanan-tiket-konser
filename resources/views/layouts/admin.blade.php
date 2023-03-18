@@ -71,7 +71,7 @@
                 </a>
                 <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ \Route::is('tiket.index') ? 'active' : '' }}" href="{{ route('tiket.index') }}">Data Konser</a>
+                        <a class="collapse-item {{ \Route::is('tiket.index') ? 'active' : '' }}" href="{{ route('tiket.index') }}">Data Tiket</a>
                     </div>
                 </div>
             </li>
