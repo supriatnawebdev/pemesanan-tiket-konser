@@ -63,6 +63,31 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item {{ \Route::is('tiket.*') ? 'active' : '' }}">
+                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseFor"
+                    aria-expanded="true" aria-controls="collapseFor">
+                    <i class="fas fa-id-card"></i>
+                    <span>Data tiket</span>
+                </a>
+                <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ \Route::is('tiket.index') ? 'active' : '' }}" href="{{ route('tiket.index') }}">Data Konser</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item {{ \Route::is('ordertiket.*') ? 'active' : '' }}">
+                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="true" aria-controls="collapseFive">
+                    <i class="fas fa-id-card"></i>
+                    <span>Data ordertiket</span>
+                </a>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ \Route::is('ordertiket.index') ? 'active' : '' }}" href="{{ route('ordertiket.index') }}">Data Konser</a>
+                    </div>
+                </div>
+            </li>
 
 
 

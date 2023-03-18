@@ -60,11 +60,15 @@ class KonserController extends Controller
     public function store(StoreKonserRequest $request)
     {
 
+        $requestData = $request->validated();
 
+        if($request->hasFile('gambar')) {
+            $requestData['gambar'] = $request->file('gambar')->store('public/gambar');
+        }
 
         Model::create($request->validated());
         // dd($requestData);
-        flash('Data berhasil diupdate');
+        flash('Data berhasil ditambahkan');
         return redirect()->route('konser.index');
     }
 
@@ -100,6 +104,8 @@ class KonserController extends Controller
             'title' => 'Form Edit Konser',
         ];
 
+
+
         return view('administrator.' . $this->viewEdit, $data);
 
     }
@@ -114,6 +120,15 @@ class KonserController extends Controller
     public function update(UpdateKonserRequest $request, $id)
     {
         $model = Model::findOrFail($id);
+
+        if($request->hasFile('gambar')) {
+            if ($model->gambar != null && Storage::exists($model->gambar)) {
+                # code...
+                Storage::delete($model->gambar);
+            }
+
+            $requestData['gambar'] = $request->file('gambar')->store('public/gambar');
+        }
         $model->fill($request->validated());
         $model->save();
         flash('Data berhasil diupdate');

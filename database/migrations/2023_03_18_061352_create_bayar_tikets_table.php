@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tikets', function (Blueprint $table) {
+        Schema::create('bayar_tikets', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_tiket');
-            $table->foreignId('konser_id');
-            $table->string('harga_tiket');
-            $table->integer('stock');
+            $table->foreignId('order_tiket_id');
+            $table->double('jumlah_dibayar');
+            $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tikets');
+        Schema::dropIfExists('bayar_tikets');
     }
 };

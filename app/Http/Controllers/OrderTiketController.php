@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tiket;
 use App\Models\Konser;
 use Illuminate\Http\Request;
-use \App\Models\Tiket as Model;
+use \App\Models\OrderTiket as Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\StoreTiketRequest;
-use App\Http\Requests\UpdateTiketRequest;
+use App\Http\Requests\StoreOrderTiketRequest;
+use App\Http\Requests\UpdateOrderTiketRequest;
 
-class TiketController extends Controller
+class OrderTiketController extends Controller
 {
-    private $viewIndex = 'tiket_index';
-    private $viewCreate = 'tiket_form';
-    private $viewEdit = 'tiket_form';
-    private $viewShow = 'tiket_show';
-    private $routePrefix = 'tiket';
+    private $viewIndex = 'ordertiket_index';
+    private $viewCreate = 'ordertiket_form';
+    private $viewEdit = 'ordertiket_form';
+    private $viewShow = 'ordertiket_show';
+    private $routePrefix = 'ordertiket';
     /**
      * Display a listing of the resource.
      *
@@ -24,13 +26,13 @@ class TiketController extends Controller
     public function index(Request $request)
     {
 
-       $models = Model::with('konser')->latest()->paginate('30');
+       $models = Model::with('user', 'tiket')->paginate('30');
 
 
        return view('administrator.' . $this->viewIndex, [
             'models' => $models,
             'routePrefix' => $this->routePrefix,
-            'title' => 'Data tiket'
+            'title' => 'Data Order tiket'
         ]);
     }
 
@@ -46,8 +48,8 @@ class TiketController extends Controller
             'method' => 'POST',
             'route'  => $this->routePrefix . '.store',
             'button' => 'SIMPAN',
-            'konser_id' => Konser::pluck('nama_konser', 'id'),
-            'title' => 'Form Data tiket',
+            'tiket_id' => Tiket::pluck('kode_tiket', 'id'),
+            'title' => 'Form Data Order tiket',
 
         ];
 
@@ -60,16 +62,19 @@ class TiketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTiketRequest $request)
+    public function store(StoreOrderTiketRequest $request)
     {
+
 
 
         $requestData = $request->validated();
 
-        Model::create($request->validated());
-        // dd($requestData);
+
+        $requestData['user_id'] = Auth::user()->id;
+
+        Model::create($requestData);
         flash('Data berhasil diupdate');
-        return redirect()->route('tiket.index');
+        return redirect()->route('ordertiket.index');
     }
 
     /**
@@ -101,8 +106,8 @@ class TiketController extends Controller
             'method' => 'PUT',
             'route'  => [ $this->routePrefix . '.update', $id],
             'button' => 'UPDATE',
-            'konser_id' => Konser::pluck('nama_konser', 'id'),
-            'title' => 'Form Edit Tiket',
+            'tiket_id' => Tiket::pluck('kode_tiket', 'id'),
+            'title' => 'Form Edit Order Tiket',
         ];
 
         return view('administrator.' . $this->viewEdit, $data);
@@ -116,13 +121,13 @@ class TiketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTiketRequest $request, $id)
+    public function update(UpdateOrderTiketRequest $request, $id)
     {
         $model = Model::findOrFail($id);
         $model->fill($request->validated());
         $model->save();
         flash('Data berhasil diupdate');
-        return redirect()->route('tiket.index');
+        return redirect()->route('ordertiket.index');
     }
 
     /**

@@ -27,6 +27,7 @@ class UpdateKonserRequest extends FormRequest
             'nama_konser' => 'required',
             'nama_artis' => 'required',
             'tanggal_konser' => 'required',
+            'gambar' => 'nullable'
         ];
     }
 }

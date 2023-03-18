@@ -22,6 +22,7 @@
                                     <th>Nama konser</th>
                                     <th>nama artis</th>
                                     <th>Tanggal Konser</th>
+                                    <th>Gambar</th>
                                     <th width="20%">Aksi</th>
                                 </tr>
                             </thead>
@@ -32,6 +33,9 @@
                                         <td>{{ $item->nama_konser}}</td>
                                         <td>{{ $item->nama_artis }}</td>
                                         <td>{{ $item->tanggal_konser }}</td>
+                                        <td><img src="{{ \Storage::url($item->gambar) }}" width="150"></td>
+
+
                                         {{-- <td>{{ formatRupiah($item->jumlah, "IDR. ") }}</td> --}}
                                         <td class="">
                                             {!! Form::open([

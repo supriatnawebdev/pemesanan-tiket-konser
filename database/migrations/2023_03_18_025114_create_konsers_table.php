@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_konser');
             $table->string('nama_artis');
             $table->date('tanggal_konser');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }

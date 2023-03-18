@@ -13,7 +13,7 @@ class StoreTiketRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreTiketRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'kode_tiket' => 'required|unique:tikets,kode_tiket',
+            'konser_id' => 'required',
+            'harga_tiket' => 'required',
+            'stock' => 'required',
         ];
     }
 }
