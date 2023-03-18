@@ -22,6 +22,11 @@
 - npm run dev
 - login or register
 
+#Authentikasi
+
+- Email : administrator@gmail.com
+- Password : administrator
+
 
 
 
