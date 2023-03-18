@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\KonserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BayarTiketController;
 use App\Http\Controllers\OrderTiketController;
+use App\Http\Controllers\ClientDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +26,29 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/beranda', [DashboardController::class, 'index'])->name('administrator.beranda');
 
-Route::resource('/konser', KonserController::class);
-Route::resource('/tiket', TiketController::class);
-Route::resource('/ordertiket', OrderTiketController::class);
-Route::resource('/pembayarantiket', BayarTiketController::class);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('administrator')->middleware(['auth', 'auth.administrator'])->group(function () {
+
+    Route::get('/beranda', [DashboardController::class, 'index'])->name('administrator.beranda');
+    Route::resource('/konser', KonserController::class);
+    Route::resource('/tiket', TiketController::class);
+    Route::resource('/ordertiket', OrderTiketController::class);
+    Route::resource('/pembayarantiket', BayarTiketController::class);
+});
+
+Route::prefix('client')->middleware(['auth', 'auth.client'])->group(function () {
+
+    Route::get('/beranda', [ClientDashboardController::class, 'index'])->name('client.beranda');
+
+});
+
+Route::get('logout', function () {
+    Auth::user()->logout();
+});
+
+
+
+

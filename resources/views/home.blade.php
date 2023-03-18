@@ -1,28 +1,24 @@
-@extends('layouts.admin')
-@section('profilname')
-<span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ \Auth::user()->name }}</span>
-@endsection
-@section('content')
+@extends('layouts.app')
 
-<div class="col-12 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
                     @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                    Welcome, {{ Auth::user()->username }}
-                {{ __('You are logged in!') }}
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 @endsection
+
