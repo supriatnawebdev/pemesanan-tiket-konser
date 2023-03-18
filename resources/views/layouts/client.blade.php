@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ \Route::is('client.beranda') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('administrator.beranda') }}">
+                <a class="nav-link" href="{{ route('client.beranda') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -53,7 +53,7 @@
 
 
 
-            <li class="nav-item {{ \Route::is('client.*') ? 'active' : '' }}">
+            <li class="nav-item {{ \Route::is('tiket.*') ? 'active' : '' }}">
                 <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseFor"
                     aria-expanded="true" aria-controls="collapseFor">
                     <i class="fas fa-id-card"></i>
@@ -61,7 +61,7 @@
                 </a>
                 <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ \Route::is('client.index') ? 'active' : '' }}" href="{{ route('client.index') }}">Data Tiket</a>
+                        <a class="collapse-item {{ \Route::is('tiket.index') ? 'active' : '' }}" href="{{ route('tiket.index') }}">Data Tiket</a>
                     </div>
                 </div>
             </li>
