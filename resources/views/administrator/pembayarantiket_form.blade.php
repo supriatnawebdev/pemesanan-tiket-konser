@@ -18,7 +18,7 @@
 
                         <div class="form-group mb-3">
                             <label for="order_tiket_id">Nomor Order Tiket</label>
-                            {!! Form::select('order_tiket_id', $order_tiket_id, null, ['class' => 'form-select', 'placeholder' => 'Pilih konser']) !!}
+                            {!! Form::select('order_tiket_id', $order_tiket_id, null, ['class' => 'form-select', 'placeholder' => 'Pilih data order']) !!}
                             <span class="text-danger">{{ $errors->first('order_tiket_id') }}</span>
                         </div>
 
