@@ -4,19 +4,6 @@
 - PHP  >= 8
 - Npm = 9.5.0
 
-#Fitur
-
-- CRUD petugas
-- CRUD kelas
-- CRUD siswa
-- CRUD spp
-- CRUD tagihan
-- pembayaran 
-
-#Authentikasi 
-
-- Usernme : administrator
-- Password : administrator
 
 #Langkah - langkah instal project
 
