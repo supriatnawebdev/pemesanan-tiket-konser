@@ -51,18 +51,18 @@
             <hr class="sidebar-divider">
 
 
-            {{-- <li class="nav-item {{ \Route::is('siswas.*') ? 'active' : '' }}">
+            <li class="nav-item {{ \Route::is('konser.*') ? 'active' : '' }}">
                 <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseThere"
                     aria-expanded="true" aria-controls="collapseThere">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Data Siswa</span>
+                    <i class="fas fa-music"></i>
+                    <span>Data Konser</span>
                 </a>
                 <div id="collapseThere" class="collapse" aria-labelledby="headingThere" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ \Route::is('siswas.index') ? 'active' : '' }}" href="{{ route('siswas.index') }}">Data Siswa</a>
+                        <a class="collapse-item {{ \Route::is('konser.index') ? 'active' : '' }}" href="{{ route('konser.index') }}">Data Konser</a>
                     </div>
                 </div>
-            </li> --}}
+            </li>
 
 
 
@@ -140,7 +140,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SPP BATARA 2023</span>
+                        <span>Copyright &copy; PESAN TIKET YUK</span>
                     </div>
                 </div>
             </footer>

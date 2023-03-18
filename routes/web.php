@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KonserController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -22,3 +23,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/beranda', [DashboardController::class, 'index'])->name('administrator.beranda');
+
+Route::resource('/konser', KonserController::class);
