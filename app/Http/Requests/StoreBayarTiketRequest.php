@@ -13,7 +13,7 @@ class StoreBayarTiketRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreBayarTiketRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'order_tiket_id' => 'required',
+            'jumlah_dibayar' => 'required',
         ];
     }
 }

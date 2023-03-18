@@ -67,7 +67,7 @@
                 <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseFor"
                     aria-expanded="true" aria-controls="collapseFor">
                     <i class="fas fa-id-card"></i>
-                    <span>Data tiket</span>
+                    <span>Data Tiket</span>
                 </a>
                 <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -84,7 +84,21 @@
                 </a>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ \Route::is('ordertiket.index') ? 'active' : '' }}" href="{{ route('ordertiket.index') }}">Data Konser</a>
+                        <a class="collapse-item {{ \Route::is('ordertiket.index') ? 'active' : '' }}" href="{{ route('ordertiket.index') }}">Data Order Tiket</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="nav-item {{ \Route::is('pembayarantiket.*') ? 'active' : '' }}">
+                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="true" aria-controls="collapseSix">
+                    <i class="fas fa-id-card"></i>
+                    <span>Pembayaran Tiket</span>
+                </a>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ \Route::is('pembayarantiket.index') ? 'active' : '' }}" href="{{ route('pembayarantiket.index') }}">Data Pembayaran Tiket</a>
                     </div>
                 </div>
             </li>

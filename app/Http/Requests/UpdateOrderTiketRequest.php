@@ -13,7 +13,7 @@ class UpdateOrderTiketRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateOrderTiketRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tiket_id' => 'required,' . $this->tiket,
+            'nama_pemesan' => 'required',
+            'email_pemesan' => 'required',
+            'nohp_pemesan' => 'required',
+            'alamat_pemesan' => 'required',
         ];
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\KonserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BayarTiketController;
 use App\Http\Controllers\OrderTiketController;
 
 /*
@@ -29,3 +30,4 @@ Route::get('/beranda', [DashboardController::class, 'index'])->name('administrat
 Route::resource('/konser', KonserController::class);
 Route::resource('/tiket', TiketController::class);
 Route::resource('/ordertiket', OrderTiketController::class);
+Route::resource('/pembayarantiket', BayarTiketController::class);

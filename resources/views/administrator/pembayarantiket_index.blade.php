@@ -20,11 +20,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pemesan</th>
-                                    <th>No HP</th>
-                                    <th>Kode Tiket</th>
-                                    <th>Harga</th>
-                                    <th>Nama konser</th>
-                                    <th>Tanggal Konser</th>
+                                    <th>Jumlah Dibayar</th>
+                                    <th>Status</th>
                                     <th width="20%">Aksi</th>
                                 </tr>
                             </thead>
@@ -33,13 +30,9 @@
                                     <tr>
 
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama_pemesan }}</td>
-                                        <td>{{ $item->nohp_pemesan }}</td>
-                                        <td>{{ $item->tiket->kode_tiket }}</td>
-                                        <td>{{ $item->tiket->harga_tiket }}</td>
-                                        <td>{{ $item->tiket->konser->nama_konser }}</td>
-                                        <td>{{ $item->tiket->konser->tanggal_konser }}</td>
-
+                                        <td>{{ $item->orderTiket->nama_pemesan }}</td>
+                                        <td>{{ $item->jumlah_dibayar }}</td>
+                                        <td>{{ $item->status}}</td>
 
 
                                         {{-- <td>{{ formatRupiah($item->jumlah, "IDR. ") }}</td> --}}
