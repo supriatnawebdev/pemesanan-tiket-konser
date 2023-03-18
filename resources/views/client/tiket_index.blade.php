@@ -9,7 +9,7 @@
                 <div class="card-header">{{ $title }}</div>
 
                 <div class="card-body">
-                    <a href="{{ route($routePrefix . '.create') }}" class="btn btn-primary btn-sm">Tambah Data</a>
+
 
                     <div class="container text-center py-0 mt-2">
                         @include('flash::message')
@@ -25,7 +25,7 @@
                                     <th>Tanggal Konser</th>
                                     <th>Harga Tiket</th>
                                     <th>Stock</th>
-                                    <th width="20%">Aksi</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,19 +41,7 @@
                                         <th>{{ $item->stock }}</th>
 
                                         {{-- <td>{{ formatRupiah($item->jumlah, "IDR. ") }}</td> --}}
-                                        <td class="">
-                                            {!! Form::open([
-                                                'route' => [ $routePrefix . '.destroy', $item->id],
-                                                'method' => 'DELETE',
-                                                'onsubmit' => 'return confirm("Yakin ingin hapus data ?")',
-                                                ]) !!}
-                                                <a href="{{ route( $routePrefix . '.edit', $item->id) }}" class="btn btn-warning  btn-sm  mr-1">
-                                                    <i class="fas fa-edit"></i></a>
 
-                                                {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
-                                           {!! Form::close() !!}
-                                        </td>
-                                        </td>
                                     </tr>
                                 @empty
                                 <tr>
